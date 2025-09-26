@@ -15,6 +15,12 @@
 
       <% if user_signed_in? %>
         <li class="nav-item">
+          <%= link_to "New Pin", new_pin_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "List Pins", pins_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
           <%= link_to('Logout', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'nav-link') %>
         </li>
         <li class="nav-item">

@@ -1,11 +1,13 @@
-<% content_for :title, "New pin" %>
+<div class="card">
+  <div class="card-header"><h1>New pin</h1></div>
+  <div class="card-body">
 
-<h1>New pin</h1>
+    <% content_for :title, "New pin" %>
+    <%= render "form", pin: @pin %>
 
-<%= render "form", pin: @pin %>
+    <br>
+  </div>
 
-<br>
+  <div class="card-footer text-body-secondary"><%= link_to "Back to pins", pins_path %></div>
 
-<div>
-  <%= link_to "Back to pins", pins_path %>
 </div>

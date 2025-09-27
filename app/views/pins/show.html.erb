@@ -1,10 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<div class="card">
+  <div class="card-header"><h1>Pin: <%=  %></h1></div>
+  <div class="card-body">
 
-<%= render @pin %>
+    <p style="color: green"><%= notice %></p>
 
-<div>
-  <%= link_to "Edit this pin", edit_pin_path(@pin) %> |
-  <%= link_to "Back to pins", pins_path %>
+    <%= render @pin %>
 
-  <%= button_to "Destroy this pin", @pin, method: :delete %>
+    <div>
+      <%= link_to "Edit this pin", edit_pin_path(@pin) %> |
+      <%= link_to "Back to pins", pins_path %>
+    </div>
+  </div>
+
+<div class="card-footer text-body-secondary">
+  <%= button_to "Destroy this pin", @pin, method: :delete, class:"btn btn-danger"%>
 </div>

@@ -1,5 +1,7 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[ index show ]
+  before_action :correct_user, only: %i[ edit update destroy ]
 
   # GET /pins or /pins.json
   def index
@@ -12,7 +14,7 @@ class PinsController < ApplicationController
 
   # GET /pins/new
   def new
-    @pin = Pin.new
+    @pin = current_user.pins.build
   end
 
   # GET /pins/1/edit
@@ -21,7 +23,7 @@ class PinsController < ApplicationController
 
   # POST /pins or /pins.json
   def create
-    @pin = Pin.new(pin_params)
+    @pin = current_user.pins.build(pin_params)
 
     respond_to do |format|
       if @pin.save
@@ -55,6 +57,11 @@ class PinsController < ApplicationController
       format.html { redirect_to pins_path, notice: "Pin was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @pin = current_user.pins.find_by(id: params[:id])
+    redirect_to pins_path, notice:"Not authorized to edit this pin" if @pin.nil?
   end
 
   private

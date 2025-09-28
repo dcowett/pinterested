@@ -21,6 +21,8 @@ class PinsController < ApplicationController
   def edit
   end
 
+
+
   # POST /pins or /pins.json
   def create
     @pin = current_user.pins.build(pin_params)
@@ -72,6 +74,6 @@ class PinsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pin_params
-      params.expect(pin: [ :description ])
+      params.expect(pin: [ :description, :image])
     end
 end

@@ -5,7 +5,7 @@
     <% content_for :title, "Pins" %>
 
     <div id="pins">
-      <% @pins.each do |pin| %>
+      <% @pins.each do | pin | %>
         <p>
           <%= render pin %>
           <%= link_to "Show this pin", pin %>

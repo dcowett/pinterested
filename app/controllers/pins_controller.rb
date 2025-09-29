@@ -74,6 +74,6 @@ class PinsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pin_params
-      params.expect(pin: [ :description, :image])
+      params.expect(pin: [ :description, :image ])
     end
 end

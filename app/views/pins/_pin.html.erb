@@ -1,7 +1,10 @@
 <div id="<%= dom_id pin %>">
-  <p>
+
+<p>
     <% if pin.image.attached? %>
-      <%= image_tag pin.image.variant(resize_to_limit: [200, 200]) %>
+      <%= image_tag pin.image.variant(resize_to_limit: [100, 100]) %>
+      <% else %>
+      <%= image_tag 'default_image.png' %>
     <% end %>
     <strong>Description:</strong>
     <%= pin.description %>

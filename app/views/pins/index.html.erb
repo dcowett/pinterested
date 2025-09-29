@@ -1,16 +1,20 @@
-<p style="color: green"><%= notice %></p>
+<div class="card">
+  <div class="card-header"><h1>Pins</h1></div>
+  <div class="card-body"><p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Pins" %>
+    <% content_for :title, "Pins" %>
 
-<h1>Pins</h1>
+    <div id="pins">
+      <% @pins.each do |pin| %>
 
-<div id="pins">
-  <% @pins.each do |pin| %>
-    <p>
-      <%= render pin %>
-      <%= link_to "Show this pin", pin %>
-    </p>
-  <% end %>
+        <p>
+          <%= render pin %>
+          <%= link_to "Show this pin", pin %>
+        </p>
+      <% end %>
+    </div>
 </div>
 
+<div class="card-footer text-body-secondary">
 <%= link_to "New pin", new_pin_path %>
+</div>

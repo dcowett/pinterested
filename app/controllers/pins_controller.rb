@@ -27,7 +27,7 @@ class PinsController < ApplicationController
   def create
     @pin = current_user.pins.build(pin_params)
 
-    respond_to do | format |
+    respond_to do |format|
       if @pin.save
         format.html { redirect_to @pin, notice: "Pin was successfully created." }
         format.json { render :show, status: :created, location: @pin }
@@ -40,7 +40,7 @@ class PinsController < ApplicationController
 
   # PATCH/PUT /pins/1 or /pins/1.json
   def update
-    respond_to do | format |
+    respond_to do |format|
       if @pin.update(pin_params)
         format.html { redirect_to @pin, notice: "Pin was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @pin }
@@ -55,7 +55,7 @@ class PinsController < ApplicationController
   def destroy
     @pin.destroy!
 
-    respond_to do | format |
+    respond_to do |format|
       format.html { redirect_to pins_path, notice: "Pin was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
@@ -63,7 +63,7 @@ class PinsController < ApplicationController
 
   def correct_user
     @pin = current_user.pins.find_by(id: params[:id])
-    redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
+    redirect_to pins_path, notice:"Not authorized to edit this pin" if @pin.nil?
   end
 
   private

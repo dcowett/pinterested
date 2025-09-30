@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-  before_action :set_pin, only: %i[ show edit update destroy ]
+  before_action :set_pin, only: %i[ edit update destroy ]
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :correct_user, only: %i[ edit update destroy ]
 
@@ -10,6 +10,7 @@ class PinsController < ApplicationController
 
   # GET /pins/1 or /pins/1.json
   def show
+    @pins = set_pin
   end
 
   # GET /pins/new
@@ -63,7 +64,7 @@ class PinsController < ApplicationController
 
   def correct_user
     @pin = current_user.pins.find_by(id: params[:id])
-    redirect_to pins_path, notice:"Not authorized to edit this pin" if @pin.nil?
+    redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
   end
 
   private

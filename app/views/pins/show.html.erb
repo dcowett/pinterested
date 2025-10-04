@@ -1,15 +1,28 @@
-<div class="card">
-  <div class="card-header"><h1>Pin: <%= @pin %></h1></div>
-  <div class="card-body">
+<div class="container">
+  <div class="row" >
+    <div class="col-md">
+      <div class="panel panel-default">
+        <div class="panel-heading center">
+          <% if @pin.image.attached? %>
+            <%= image_tag @pin.image.variant(resize_to_limit: [ 400, 400 ]) %>
+            <% else %>
+            <%= image_tag "default_image.png" %>
+          <% end %>
 
-    <%= render @pin %>
+        <div class="card-body">
+          <%= @pin.description %>
+          </br>
+          <%= @pin.user.name %>
 
-    <div>
-      <%= link_to "Edit this pin", edit_pin_path(@pin) %> |
-      <%= link_to "Back to pins", pins_path %>
+          <div>
+            <%= link_to "Edit this pin", edit_pin_path(@pin) %> |
+            <%= link_to "Back to pins", pins_path %>
+          </div>
+        </div>
+
+      <div class="card-footer text-body-secondary">
+        <%= button_to "Destroy this pin", @pin, method: :delete, class:"btn btn-danger"%>
+      </div>
     </div>
   </div>
-
-<div class="card-footer text-body-secondary">
-  <%= button_to "Destroy this pin", @pin, method: :delete, class:"btn btn-danger"%>
 </div>

@@ -1,5 +1,7 @@
+<%= render "home/jumbo" unless user_signed_in? %>
+
 <div class="card">
-  <div class="card-header"><h1>Pins</h1></div>
+  <div class="card-header"></div>
   <div class="card-body">
 
     <% content_for :title, "Pins" %>

@@ -22,7 +22,7 @@ gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
 gem "image_processing", "~> 1.2"
-gem "masonry-rails", '~> 0.2.4'
+gem "masonry-rails", "~> 0.2.4"
 gem "devise", "~> 4.9", ">= 4.9.4"
 gem "google-cloud-storage", "~> 1.11", require: false
 

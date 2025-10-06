@@ -25,6 +25,7 @@ gem "image_processing", "~> 1.2"
 gem "masonry-rails", "~> 0.2.4"
 gem "devise", "~> 4.9", ">= 4.9.4"
 gem "google-cloud-storage", "~> 1.11", require: false
+gem "kaminari", "~> 1.2", ">= 1.2.2"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

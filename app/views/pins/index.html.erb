@@ -1,29 +1,27 @@
+<div id="pins, class="masonry-wrapper" >
+<%= stylesheet_link_tag "masonary" %>
 <%= render "home/jumbo" unless user_signed_in? %>
 <%= paginate @pins, class: "page-link"  %>
-  <div class="card">
-    <div class="card-body">
 
-      <% content_for :title, "Pins" %>
+<% content_for :title, "Pins" %>
 
-      <div id="pins">
-        <% @pins.each do |pin| %>
-          <p>
-            <% if pin.image.attached? %>
-              <%= image_tag pin.image.variant(resize_to_limit: [ 200, 200 ]) %>
-              <% else %>
-              <%= image_tag "default_image.png" %>
-            <% end %>
-            </br>
-            <%= pin.description %>
-            </br>
-            <%= pin.user.name %>
-            </br>
-            <%= link_to "Show this pin", pin %>
-          </p>
-        <% end %>
-      </div>
+    <% if @pins.exists? %>
 
+        <div class="masonry">
+          <% @pins.each do |pin| %>
+            <div class="masonry-item masonry-content center"></br>
+              <% if pin.image.attached? %>
+                <%= image_tag pin.image.variant(resize_to_limit: [ 200, 200 ]) %>
+                <% else %>
+                <%= image_tag "default_image.png" %>
+              <% end %>
+                </br>
+                <%= pin.description %></br>
+                <%= pin.user.name %></br>
+                <%= link_to "Show this pin", pin %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
 
-
-  </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_08_220119) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_10_170928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -45,11 +45,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_08_220119) do
   create_table "addresses", force: :cascade do |t|
     t.integer "street_number"
     t.string "street_name"
-    t.string "street_type"
     t.string "zip_code"
     t.string "neighborhood"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "land_use_desc"
+    t.string "subdivision_name"
+    t.string "owner_name_line1"
+    t.string "owner_name_line2"
   end
 
   create_table "pins", force: :cascade do |t|

@@ -1,17 +1,9 @@
 <div id="<%= dom_id address %>">
   <p>
-    <strong>Street number:</strong>
+    <strong>Street:</strong>
     <%= address.street_number %>
-  </p>
-
-  <p>
-    <strong>Street name:</strong>
     <%= address.street_name %>
-  </p
-
-  <p>
-    <strong>Zip code:</strong>
-    <%= address.zip_code %>
+    , <%= address.zip_code %>
   </p>
 
   <p>
@@ -30,7 +22,7 @@
   </p>
 
   <p>
-    <strong>Owner Name:</strong>
+    <strong>Owner:</strong>
     <%= address.owner_name_line1%>
     </br> <%= address.owner_name_line2%>
   </p>

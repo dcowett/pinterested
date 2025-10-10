@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  resources :addresses do
+    collection do
+      post :import
+    end
+  end
+
   resources :pins
   devise_for :users
 
   devise_scope :user do
-   get '/users/sign_out' => 'devise/sessions#destroy'
+   get "/users/sign_out" => "devise/sessions#destroy"
   end
 
   get "home/index"
